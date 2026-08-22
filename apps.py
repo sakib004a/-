@@ -46,7 +46,7 @@ def analyze_plant_health(image):
                     ],
                 }
             ],
-            model="llama-3.2-11b-vision-instruct",
+            model="llama-3.2-11b-vision",
         )
         return chat_completion.choices[0].message.content
     except Exception as e:
