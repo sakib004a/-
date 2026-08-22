@@ -1,10 +1,14 @@
 import os
 import gradio as gr
-from google.genai import client
+import google.generativeai as genai
 from PIL import Image
 
-GEMINI_API_KEY = "AQ.Ab8RN6JH1BOBWMSbFkfvpSkeIO-7n1HRPmLWM7FelJavpz3hMg"  # আপনার আসল API Key বসান
-ai = client.Client(api_key=GEMINI_API_KEY)
+# আপনার API Key এখানে বসান
+GEMINI_API_KEY = "AQ.Ab8RN6JH1BOBWMSbFkfvpSkeIO-7n1HRPmLWM7FelJavpz3hMg" 
+genai.configure(api_key=GEMINI_API_KEY)
+
+# Gemini Model সেটআপ
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 def analyze_plant_health(image):
     if image is None:
@@ -22,10 +26,7 @@ def analyze_plant_health(image):
     """
     
     try:
-        response = ai.models.generate_content(
-            model='gemini-3.6-flash',
-            contents=[pil_img, prompt]
-        )
+        response = model.generate_content([prompt, pil_img])
         return response.text
     except Exception as e:
         return f"সমস্যা হয়েছে: {str(e)}"
