@@ -46,7 +46,7 @@ def analyze_plant_health(image):
                     ],
                 }
             ],
-            model="llama-3.2-11b-vision",
+            model="qwen/qwen3.6-27b",  # Groq-এর বর্তমানে একটিভ ভিশন মডেল
         )
         return chat_completion.choices[0].message.content
     except Exception as e:
