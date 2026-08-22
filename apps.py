@@ -4,7 +4,7 @@ import google.generativeai as genai
 from PIL import Image
 
 # আপনার API Key এখানে বসান
-GEMINI_API_KEY = "AQ.Ab8RN6JH1BOBWMSbFkfvpSkeIO-7n1HRPmLWM7FelJavpz3hMg" 
+GEMINI_API_KEY = "AQ.Ab8RN6JUjb58V1aCnKQdq3T7J1P3qH51Lvt3dl46U0cyGoSabQ" 
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Gemini Model সেটআপ
