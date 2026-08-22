@@ -5,7 +5,6 @@ import gradio as gr
 from groq import Groq
 from PIL import Image
 
-# আপনারGroq API Key
 GROQ_API_KEY = "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"
 
 client = Groq(api_key=GROQ_API_KEY)
@@ -47,7 +46,7 @@ def analyze_plant_health(image):
                     ],
                 }
             ],
-            model="llama-3.2-90b-vision-preview",  # আপডেট করা মডেল नेम
+            model="llama-3.2-11b-vision-instruct",
         )
         return chat_completion.choices[0].message.content
     except Exception as e:
